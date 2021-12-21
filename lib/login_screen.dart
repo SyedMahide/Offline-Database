@@ -58,94 +58,19 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 70, left: 16, right: 16),
-                  child: TextFormField(
-                    validator: (String? value) {
-                      if (value!.isEmpty) {
-                        return "Please enter email";
-                      }
-                      if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+[a-z]")
-                          .hasMatch(value)) {
-                        return "Please enter valid email";
-                      }
-                      return null;
-                    },
-                    controller: _emailController,
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      errorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(color: Colors.blue),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(color: Colors.blue),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(color: Colors.blue),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(color: Colors.blue),
-                      ),
-                      hintText: "Email",
-                      hintStyle: TextStyle(
-                          color: Colors.blue,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400),
-                    ),
-                  ),
+                  child: emailInputField(),
                 ),
                 Container(
                   margin:
                       EdgeInsets.only(top: 10, left: 16, right: 16, bottom: 10),
-                  child: TextFormField(
-                         validator: (String? value) {
-                         if (value!.isEmpty) {
-                           return "Please enter password";
-                         }
-                     return null;
-                   },
-                    controller: _passwordController,
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      errorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(color: Colors.blue),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(color: Colors.blue),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(color: Colors.blue),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(color: Colors.blue),
-                      ),
-                      hintText: "Password",
-                      hintStyle: TextStyle(
-                          color: Colors.blue,
-                          fontWeight: FontWeight.w400,
-                          fontSize: 12),
-                    ),
-
-                  ),
+                  child: passwordInputField(),
                 ),
                 Container(
                   alignment: Alignment.center,
                   margin: EdgeInsets.only(top: 40),
                   child: MaterialButton(
                     onPressed: () {
-                         if (_formkey.currentState!.validate()){
-                             print("Sucessfull");
-                              return;
-                            }else{
-                           print("Not Worked");
-                    }
-
+                      clickOnLogin();
                     },
                     color: Colors.blue,
                     shape: RoundedRectangleBorder(
@@ -178,10 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   margin: EdgeInsets.only(top: 20),
                   child: MaterialButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => SignUp()),
-                      );
+                      clickOnSignUp();
                     },
                     color: Colors.white,
                     shape: RoundedRectangleBorder(
@@ -207,6 +129,99 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget emailInputField(){
+    return TextFormField(
+      validator: (String? value) {
+        if (value!.isEmpty) {
+          return "Please enter email";
+        }
+        if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+[a-z]")
+            .hasMatch(value)) {
+          return "Please enter valid email";
+        }
+        return null;
+      },
+      controller: _emailController,
+      decoration: InputDecoration(
+        border: InputBorder.none,
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderSide: BorderSide(color: Colors.blue),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderSide: BorderSide(color: Colors.blue),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderSide: BorderSide(color: Colors.blue),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderSide: BorderSide(color: Colors.blue),
+        ),
+        hintText: "Email",
+        hintStyle: TextStyle(
+            color: Colors.blue,
+            fontSize: 12,
+            fontWeight: FontWeight.w400),
+      ),
+    );
+  }
+
+  Widget passwordInputField(){
+    return TextFormField(
+      validator: (String? value) {
+        if (value!.isEmpty || value.length<6 || value.length>10) {
+          return "Please enter password";
+        }
+        return null;
+      },
+      controller: _passwordController,
+      decoration: InputDecoration(
+        border: InputBorder.none,
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderSide: BorderSide(color: Colors.blue),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderSide: BorderSide(color: Colors.blue),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderSide: BorderSide(color: Colors.blue),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.all(Radius.circular(10)),
+          borderSide: BorderSide(color: Colors.blue),
+        ),
+        hintText: "Password",
+        hintStyle: TextStyle(
+            color: Colors.blue,
+            fontWeight: FontWeight.w400,
+            fontSize: 12),
+      ),
+
+    );
+  }
+
+  void clickOnLogin() {
+    if (_formkey.currentState!.validate()) {
+      print("Successful");
+      return;
+    } else {
+      print("Not Worked");
+    }
+  }
+
+  void clickOnSignUp() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SignUp()),
     );
   }
 }
