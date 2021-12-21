@@ -1,3 +1,5 @@
+//import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 class SignUp extends StatelessWidget {
@@ -59,158 +61,27 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               Container(
                 margin: EdgeInsets.only(top: 50, left: 16, right: 16),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                      border: InputBorder.none,
-                      errorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(color: Colors.blue),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(color: Colors.blue),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(color: Colors.blue),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(color: Colors.blue),
-                      ),
-                      hintText: "User name",
-                      hintStyle: TextStyle(
-                          color: Colors.blue,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400)),
-                  validator: (String? value){
-                    if(value!.isEmpty){
-                      return "Enter your name";
-                    }
-                    return null;
-                  },
+                child:
+                    userNameInputField(),
                 ),
+              Container(
+                margin: EdgeInsets.only(top: 30, left: 16, right: 16),
+                child: emailInputField(),
               ),
               Container(
                 margin: EdgeInsets.only(top: 30, left: 16, right: 16),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                      border: InputBorder.none,
-                      errorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(color: Colors.blue),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(color: Colors.blue),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(color: Colors.blue),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(color: Colors.blue),
-                      ),
-                      hintText: "Email",
-                      hintStyle: TextStyle(
-                          color: Colors.blue,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400)),
-                  validator: (String? value){
-                    if (value!.isEmpty){
-                      return "Plase enter your email id";
-                    }
-                    if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+[a-z]")
-                        .hasMatch(value)) {
-                      return "Please enter valid email";
-                    }
-                    return null;
-                  },
-                ),
+                child: passwordInputField(),
               ),
               Container(
                 margin: EdgeInsets.only(top: 30, left: 16, right: 16),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                      border: InputBorder.none,
-                      errorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(color: Colors.blue),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(color: Colors.blue),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(color: Colors.blue),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(color: Colors.blue),
-                      ),
-                      hintText: "Password",
-                      hintStyle: TextStyle(
-                          color: Colors.blue,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400)),
-                  validator: (String? value) {
-                    if (value!.isEmpty) {
-                      return "Please enter password";
-                    }
-                    return null;
-                  },
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.only(top: 30, left: 16, right: 16),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                      border: InputBorder.none,
-                      errorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(color: Colors.blue),
-                      ),
-                      focusedErrorBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(color: Colors.blue),
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(color: Colors.blue),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10)),
-                        borderSide: BorderSide(color: Colors.blue),
-                      ),
-                      hintText: "Confirm password",
-                      hintStyle: TextStyle(
-                          color: Colors.blue,
-                          fontSize: 12,
-                          fontWeight: FontWeight.w400)),
-                  validator: (String? value) {
-                    if (value!.isEmpty) {
-                      return "Please re-enter password";
-                    }
-                    if (_password.text != _confirmPassword.text) {
-                      return "Password do not match";
-                    }
-                    return null;
-                  },
-                ),
+                child: confirmPasswordInputField(),
               ),
           Container(
             alignment: Alignment.center,
             margin: EdgeInsets.only(top: 60),
             child: MaterialButton(
               onPressed: () {
-                if (_formkey.currentState!.validate()){
-                  print("Sucessfull");
-                  return;
-                }else{
-                  print("Not Worked");
-                }
+                clickOnSignUpButton();
               },
               color: Colors.blue,
               shape: RoundedRectangleBorder(
@@ -236,5 +107,157 @@ class _SignUpPageState extends State<SignUpPage> {
         ),
       ),
     );
+  }
+
+  Widget userNameInputField(){
+    return TextFormField(
+      decoration: InputDecoration(
+          border: InputBorder.none,
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          hintText: "User name",
+          hintStyle: TextStyle(
+              color: Colors.blue,
+              fontSize: 12,
+              fontWeight: FontWeight.w400)),
+      validator: (String? value){
+        if(value!.isEmpty){
+          return "Enter your name";
+        }
+        return null;
+      },
+    );
+  }
+
+  Widget emailInputField(){
+    return TextFormField(
+      decoration: InputDecoration(
+          border: InputBorder.none,
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          hintText: "Email",
+          hintStyle: TextStyle(
+              color: Colors.blue,
+              fontSize: 12,
+              fontWeight: FontWeight.w400)),
+      validator: (String? value){
+        if (value!.isEmpty){
+          return "Please enter your email id";
+        }
+        if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+[a-z]")
+            .hasMatch(value)) {
+          return "Please enter valid email";
+        }
+        return null;
+      },
+    );
+  }
+
+  Widget passwordInputField(){
+    return TextFormField(
+      decoration: InputDecoration(
+          border: InputBorder.none,
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          hintText: "Password",
+          hintStyle: TextStyle(
+              color: Colors.blue,
+              fontSize: 12,
+              fontWeight: FontWeight.w400)),
+      validator: (String? value) {
+        if (value!.isEmpty) {
+          return "Please enter password";
+        }
+        return null;
+      },
+    );
+  }
+
+  Widget confirmPasswordInputField(){
+    return TextFormField(
+      decoration: InputDecoration(
+          border: InputBorder.none,
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          focusedErrorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+            borderSide: BorderSide(color: Colors.blue),
+          ),
+          hintText: "Confirm password",
+          hintStyle: TextStyle(
+              color: Colors.blue,
+              fontSize: 12,
+              fontWeight: FontWeight.w400)),
+      validator: (String? value) {
+        if (value!.isEmpty) {
+          return "Please re-enter password";
+        }
+        if (_password.text != _confirmPassword.text) {
+          return "Password do not match";
+        }
+        return null;
+      },
+    );
+  }
+
+  void clickOnSignUpButton(){
+      if (_formkey.currentState!.validate()){
+      print("Sucessfull");
+      return;
+    }else{
+      print("Not Worked");
+    }
   }
 }

@@ -13,8 +13,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-
-  final GlobalKey<FormState>_formkey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
   String? _name, _email;
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
@@ -30,7 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                 // child: Colors.white,
+                  // child: Colors.white,
                   width: double.infinity,
                   alignment: Alignment.center,
                   margin: const EdgeInsets.only(top: 200),
@@ -132,14 +131,13 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  Widget emailInputField(){
+  Widget emailInputField() {
     return TextFormField(
       validator: (String? value) {
         if (value!.isEmpty) {
           return "Please enter email";
         }
-        if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+[a-z]")
-            .hasMatch(value)) {
+        if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9-]+.[a-z]").hasMatch(value)) {
           return "Please enter valid email";
         }
         return null;
@@ -165,17 +163,15 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
         hintText: "Email",
         hintStyle: TextStyle(
-            color: Colors.blue,
-            fontSize: 12,
-            fontWeight: FontWeight.w400),
+            color: Colors.blue, fontSize: 12, fontWeight: FontWeight.w400),
       ),
     );
   }
 
-  Widget passwordInputField(){
+  Widget passwordInputField() {
     return TextFormField(
       validator: (String? value) {
-        if (value!.isEmpty || value.length<6 || value.length>10) {
+        if (value!.isEmpty || value.length < 6 || value.length > 10) {
           return "Please enter password";
         }
         return null;
@@ -201,11 +197,8 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
         hintText: "Password",
         hintStyle: TextStyle(
-            color: Colors.blue,
-            fontWeight: FontWeight.w400,
-            fontSize: 12),
+            color: Colors.blue, fontWeight: FontWeight.w400, fontSize: 12),
       ),
-
     );
   }
 
