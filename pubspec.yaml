@@ -31,7 +31,7 @@ flutter:
 
   uses-material-design: true
   assets:
-    - assets/db/kkkk.db
+    - assets/db/login.db
 #  path_provider: ^2.0.8
 
 
