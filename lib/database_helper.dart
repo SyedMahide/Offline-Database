@@ -26,18 +26,17 @@ class DatabaseHelper{
 
   }*/
 
-  static Future init() async {
+  static Future initDatabase() async {
 
     // Construct the path to the app's writable database file:
     var dbDir = await getDatabasesPath();
-    print("path "+dbDir);
     var dbPath = path.join(dbDir, "login.db");
 
 // Delete any existing database:
     await deleteDatabase(dbPath);
 
 // Create the writable database file from the bundled demo database file:
-    ByteData data = await rootBundle.load("assets/db/demo.db");
+    ByteData data = await rootBundle.load("assets/db/login.db");
     List<int> bytes = data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes);
     await File(dbPath).writeAsBytes(bytes);
     var db = await openDatabase(dbPath);

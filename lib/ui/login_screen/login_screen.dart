@@ -27,15 +27,15 @@ class _LoginScreenState extends State<LoginScreen> {
   void initState() {
 
     getUserInfo();
-    print("User Info");
   }
 
   Future getUserInfo() async{
-    final db= await DatabaseHelper.init();
-    print("db init done");
+    final db= await DatabaseHelper.initDatabase();
     // Query the table for all The Dogs.
     final List<Map<String, dynamic>> maps = await db.query('user_info');
-    print("User Info");
+
+    // List<UserInfo> u=maps.map((e) => UserInfo.fromJson(e)).toList();
+    // print(u);
      List.generate(maps.length, (i) {
       var a= UserInfo(
         id: maps[i]['id'],
@@ -43,8 +43,6 @@ class _LoginScreenState extends State<LoginScreen> {
         email: maps[i]['email'],
         password: maps[i]['pass']
       );
-      print("User Info");
-      print(a);
     });
   }
 
