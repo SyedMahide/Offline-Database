@@ -1,9 +1,11 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:flutter/material.dart';
+import 'package:offline_database/model/user_info.dart';
 import 'package:offline_database/ui/registration_screen/signup_screen.dart';
 
 import '../../core/MyColor.dart';
+import '../../database_helper.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -19,6 +21,32 @@ class _LoginScreenState extends State<LoginScreen> {
   String? _name, _email;
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
+
+
+  @override
+  void initState() {
+
+    getUserInfo();
+    print("User Info");
+  }
+
+  Future getUserInfo() async{
+    final db= await DatabaseHelper.init();
+    print("db init done");
+    // Query the table for all The Dogs.
+    final List<Map<String, dynamic>> maps = await db.query('user_info');
+    print("User Info");
+     List.generate(maps.length, (i) {
+      var a= UserInfo(
+        id: maps[i]['id'],
+        user_name: maps[i]['name'],
+        email: maps[i]['email'],
+        password: maps[i]['pass']
+      );
+      print("User Info");
+      print(a);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
