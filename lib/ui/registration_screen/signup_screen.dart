@@ -1,6 +1,29 @@
 //import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:offline_database/core/MyColor.dart';
+import 'package:offline_database/core/MyColor.dart';
+import 'package:offline_database/core/MyColor.dart';
+import 'package:offline_database/core/MyColor.dart';
+import 'package:offline_database/core/MyColor.dart';
+import 'package:offline_database/core/MyColor.dart';
+import 'package:offline_database/core/MyColor.dart';
+import 'package:offline_database/core/MyColor.dart';
+import 'package:offline_database/core/MyColor.dart';
+import 'package:offline_database/core/MyColor.dart';
+import 'package:offline_database/core/MyColor.dart';
+import 'package:offline_database/core/MyColor.dart';
+import 'package:offline_database/core/MyColor.dart';
+import 'package:offline_database/core/MyColor.dart';
+import 'package:offline_database/core/MyColor.dart';
+import 'package:offline_database/core/MyColor.dart';
+import 'package:offline_database/core/MyColor.dart';
+import 'package:offline_database/core/MyColor.dart';
+import 'package:offline_database/core/MyColor.dart';
+import 'package:offline_database/core/MyColor.dart';
+import 'package:offline_database/core/MyColor.dart';
+import 'package:offline_database/core/MyColor.dart';
+import 'package:offline_database/core/MyColor.dart';
 
 class SignUp extends StatelessWidget {
   @override
@@ -44,7 +67,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 22,
-                      color: Colors.blue),
+                      color: CustomColors.primaryColor),
                 ),
               ),
               Container(
@@ -56,7 +79,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   style: TextStyle(
                       fontWeight: FontWeight.w600,
                       fontSize: 22,
-                      color: Colors.blue),
+                      color: CustomColors.primaryColor),
                 ),
               ),
               Container(
@@ -83,7 +106,7 @@ class _SignUpPageState extends State<SignUpPage> {
               onPressed: () {
                 clickOnSignUpButton();
               },
-              color: Colors.blue,
+              color: CustomColors.primaryColor,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(10)),
               ),
@@ -115,23 +138,23 @@ class _SignUpPageState extends State<SignUpPage> {
           border: InputBorder.none,
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(10)),
-            borderSide: BorderSide(color: Colors.blue),
+            borderSide: BorderSide(color: CustomColors.primaryColor),
           ),
           focusedErrorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(10)),
-            borderSide: BorderSide(color: Colors.blue),
+            borderSide: BorderSide(color: CustomColors.primaryColor),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(10)),
-            borderSide: BorderSide(color: Colors.blue),
+            borderSide: BorderSide(color: CustomColors.primaryColor),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(10)),
-            borderSide: BorderSide(color: Colors.blue),
+            borderSide: BorderSide(color: CustomColors.primaryColor),
           ),
           hintText: "User name",
           hintStyle: TextStyle(
-              color: Colors.blue,
+              color: CustomColors.primaryColor,
               fontSize: 12,
               fontWeight: FontWeight.w400)),
       validator: (String? value){
@@ -149,23 +172,23 @@ class _SignUpPageState extends State<SignUpPage> {
           border: InputBorder.none,
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(10)),
-            borderSide: BorderSide(color: Colors.blue),
+            borderSide: BorderSide(color: CustomColors.primaryColor),
           ),
           focusedErrorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(10)),
-            borderSide: BorderSide(color: Colors.blue),
+            borderSide: BorderSide(color: CustomColors.primaryColor),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(10)),
-            borderSide: BorderSide(color: Colors.blue),
+            borderSide: BorderSide(color: CustomColors.primaryColor),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(10)),
-            borderSide: BorderSide(color: Colors.blue),
+            borderSide: BorderSide(color: CustomColors.primaryColor),
           ),
           hintText: "Email",
           hintStyle: TextStyle(
-              color: Colors.blue,
+              color: CustomColors.primaryColor,
               fontSize: 12,
               fontWeight: FontWeight.w400)),
       validator: (String? value){
@@ -187,23 +210,23 @@ class _SignUpPageState extends State<SignUpPage> {
           border: InputBorder.none,
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(10)),
-            borderSide: BorderSide(color: Colors.blue),
+            borderSide: BorderSide(color: CustomColors.primaryColor),
           ),
           focusedErrorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(10)),
-            borderSide: BorderSide(color: Colors.blue),
+            borderSide: BorderSide(color: CustomColors.primaryColor),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(10)),
-            borderSide: BorderSide(color: Colors.blue),
+            borderSide: BorderSide(color: CustomColors.primaryColor),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(10)),
-            borderSide: BorderSide(color: Colors.blue),
+            borderSide: BorderSide(color: CustomColors.primaryColor),
           ),
           hintText: "Password",
           hintStyle: TextStyle(
-              color: Colors.blue,
+              color: CustomColors.primaryColor,
               fontSize: 12,
               fontWeight: FontWeight.w400)),
       validator: (String? value) {
@@ -221,23 +244,23 @@ class _SignUpPageState extends State<SignUpPage> {
           border: InputBorder.none,
           errorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(10)),
-            borderSide: BorderSide(color: Colors.blue),
+            borderSide: BorderSide(color: CustomColors.primaryColor),
           ),
           focusedErrorBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(10)),
-            borderSide: BorderSide(color: Colors.blue),
+            borderSide: BorderSide(color: CustomColors.primaryColor),
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(10)),
-            borderSide: BorderSide(color: Colors.blue),
+            borderSide: BorderSide(color: CustomColors.primaryColor),
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(10)),
-            borderSide: BorderSide(color: Colors.blue),
+            borderSide: BorderSide(color: CustomColors.primaryColor),
           ),
           hintText: "Confirm password",
           hintStyle: TextStyle(
-              color: Colors.blue,
+              color: CustomColors.primaryColor,
               fontSize: 12,
               fontWeight: FontWeight.w400)),
       validator: (String? value) {

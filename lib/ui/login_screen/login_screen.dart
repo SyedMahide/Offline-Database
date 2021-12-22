@@ -1,7 +1,9 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:flutter/material.dart';
-import 'package:offline_database/signup_screen.dart';
+import 'package:offline_database/ui/registration_screen/signup_screen.dart';
+
+import '../../core/MyColor.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -35,12 +37,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   margin: const EdgeInsets.only(top: 200),
                   // ignore: prefer_const_constructors
                   child: Text(
-                    "Welcome to My Tatti",
+                    "Welcome to My -----",
                     // ignore: prefer_const_constructors
                     style: TextStyle(
                         fontSize: 22,
                         fontWeight: FontWeight.w600,
-                        color: Colors.blue),
+                        color: CustomColors.primaryColor),
                   ),
                 ),
                 Container(
@@ -52,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 20,
-                        color: Colors.blue),
+                        color: CustomColors.primaryColor),
                   ),
                 ),
                 Container(
@@ -71,7 +73,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     onPressed: () {
                       clickOnLogin();
                     },
-                    color: Colors.blue,
+                    color: CustomColors.primaryColor,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                     ),
@@ -118,7 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         style: TextStyle(
                             fontSize: 22,
                             fontWeight: FontWeight.w600,
-                            color: Colors.blue),
+                            color: CustomColors.primaryColor),
                       ),
                     ),
                   ),
@@ -147,23 +149,23 @@ class _LoginScreenState extends State<LoginScreen> {
         border: InputBorder.none,
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(10)),
-          borderSide: BorderSide(color: Colors.blue),
+          borderSide: BorderSide(color: CustomColors.primaryColor),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(10)),
-          borderSide: BorderSide(color: Colors.blue),
+          borderSide: BorderSide(color: CustomColors.primaryColor),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(10)),
-          borderSide: BorderSide(color: Colors.blue),
+          borderSide: BorderSide(color: CustomColors.primaryColor),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(10)),
-          borderSide: BorderSide(color: Colors.blue),
+          borderSide: BorderSide(color: CustomColors.primaryColor),
         ),
         hintText: "Email",
         hintStyle: TextStyle(
-            color: Colors.blue, fontSize: 12, fontWeight: FontWeight.w400),
+            color: CustomColors.primaryColor, fontSize: 12, fontWeight: FontWeight.w400),
       ),
     );
   }
@@ -181,23 +183,23 @@ class _LoginScreenState extends State<LoginScreen> {
         border: InputBorder.none,
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(10)),
-          borderSide: BorderSide(color: Colors.blue),
+          borderSide: BorderSide(color: CustomColors.primaryColor),
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(10)),
-          borderSide: BorderSide(color: Colors.blue),
+          borderSide: BorderSide(color: CustomColors.primaryColor),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(10)),
-          borderSide: BorderSide(color: Colors.blue),
+          borderSide: BorderSide(color: CustomColors.primaryColor),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.all(Radius.circular(10)),
-          borderSide: BorderSide(color: Colors.blue),
+          borderSide: BorderSide(color: CustomColors.primaryColor),
         ),
         hintText: "Password",
         hintStyle: TextStyle(
-            color: Colors.blue, fontWeight: FontWeight.w400, fontSize: 12),
+            color: CustomColors.primaryColor, fontWeight: FontWeight.w400, fontSize: 12),
       ),
     );
   }
