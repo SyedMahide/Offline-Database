@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:offline_database/core/MyColor.dart';
+import 'package:offline_database/model/user_info.dart';
+import 'package:offline_database/database_helper.dart';
 import 'package:offline_database/core/MyColor.dart';
 import 'package:offline_database/core/MyColor.dart';
 import 'package:offline_database/core/MyColor.dart';
@@ -49,6 +51,28 @@ class _SignUpPageState extends State<SignUpPage> {
  TextEditingController _password = TextEditingController();
  TextEditingController _confirmPassword = TextEditingController();
 
+  @override
+  void initState() {
+
+
+  }
+
+  Future getUserInfo() async{
+    final db= await DatabaseHelper.initDatabase();
+    // Query the table for all The Dogs.
+    final List<Map<String, dynamic>> maps = await db.query('user_info');
+
+    // List<UserInfo> u=maps.map((e) => UserInfo.fromJson(e)).toList();
+    // print(u);
+    List.generate(maps.length, (i) {
+      var a= UserInfo(
+          id: maps[i]['id'],
+          user_name: maps[i]['name'],
+          email: maps[i]['email'],
+          password: maps[i]['pass']
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +84,7 @@ class _SignUpPageState extends State<SignUpPage> {
             children: [
               Container(
                 alignment: Alignment.center,
-                color: Colors.white,
+               // color: Colors.white,
                 margin: EdgeInsets.only(top: 100),
                 child: Text(
                   "SignUp",
@@ -72,7 +96,7 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               Container(
                 alignment: Alignment.center,
-                color: Colors.white,
+              //  color: Colors.white,
                 // margin: EdgeInsets.only(top: 60),
                 child: Text(
                   "Here",
@@ -206,6 +230,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
   Widget passwordInputField(){
     return TextFormField(
+      controller: _password,
       decoration: InputDecoration(
           border: InputBorder.none,
           errorBorder: OutlineInputBorder(
@@ -240,6 +265,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
   Widget confirmPasswordInputField(){
     return TextFormField(
+      controller: _confirmPassword,
       decoration: InputDecoration(
           border: InputBorder.none,
           errorBorder: OutlineInputBorder(
@@ -263,6 +289,7 @@ class _SignUpPageState extends State<SignUpPage> {
               color: CustomColors.primaryColor,
               fontSize: 12,
               fontWeight: FontWeight.w400)),
+
       validator: (String? value) {
         if (value!.isEmpty) {
           return "Please re-enter password";
@@ -278,7 +305,7 @@ class _SignUpPageState extends State<SignUpPage> {
   void clickOnSignUpButton(){
       if (_formkey.currentState!.validate()){
       print("Sucessfull");
-      return;
+      getUserInfo();
     }else{
       print("Not Worked");
     }
